@@ -4,4 +4,5 @@ QT += quick
 
 SUBDIRS += \
     app \
-    calc_lib
+    calc_lib \
+    unit_tests
