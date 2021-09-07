@@ -1,12 +1,19 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
+// calc_lib
+#include <QCalculatorPresenter.h>
+#include <QCalculatorView.h>
+
 
 int main(int argc, char *argv[])
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
+
+    QCalculatorPresenter::RegisterType();
+    QCalculatorView::RegisterType();
 
     QGuiApplication app(argc, argv);
 

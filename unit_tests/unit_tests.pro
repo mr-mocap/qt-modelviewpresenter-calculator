@@ -1,16 +1,26 @@
+GOOGLETEST_DIR = ../googletest
+
 include(gtest_dependency.pri)
 
 TEMPLATE = app
-CONFIG += console c++11
+CONFIG += console c++17
 CONFIG -= app_bundle
 CONFIG += thread
-CONFIG -= qt
+CONFIG += qt
+
+QT += quick
 
 HEADERS += \
+    CalculatorPresenterTestFixture.h \
+    CalculatorViewTestFixture.h \
+    FakeCalculatorView.h \
     unit_test_types.h
 
 SOURCES += \
+        CalculatorPresenterTests.cpp \
         CalculatorTests.cpp \
+        CalculatorViewTests.cpp \
+        FakeCalculatorView.cpp \
         main.cpp
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../calc_lib/release/ -lcalc_lib

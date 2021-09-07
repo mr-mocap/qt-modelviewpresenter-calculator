@@ -8,6 +8,8 @@
 class Calculator
 {
 public:
+    Calculator();
+
     struct State
     {
         std::string           display;

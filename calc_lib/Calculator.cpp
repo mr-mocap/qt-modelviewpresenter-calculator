@@ -166,6 +166,8 @@ namespace
 
     void InsertDigitIntoDisplay(Calculator::State &calculator_state, const char digit)
     {
+        if (calculator_state.display == "0")
+            calculator_state.display.clear();
         calculator_state.display.push_back(digit);
     }
 
@@ -174,6 +176,11 @@ namespace
         return (OperationLevel[left] == OperationLevel[right]) ||
                (OperationLevel[left] < OperationLevel[right]);
     }
+}
+
+Calculator::Calculator()
+{
+    _state.display = "0";
 }
 
 void Calculator::pressKey(const char key)
