@@ -5,7 +5,7 @@ import QtQuick.Controls 2.5
 import Qt.example.calculatorpresenter 1.0
 import Qt.example.calculatorview 1.0
 
-Window {
+ApplicationWindow {
     id: window
     visible: true
     title: qsTr("Calculator")
