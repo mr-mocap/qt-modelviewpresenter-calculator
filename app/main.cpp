@@ -12,11 +12,14 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
 
+    // Register our types in Qt
     QCalculatorPresenter::RegisterType();
     QCalculatorView::RegisterType();
 
     QGuiApplication app(argc, argv);
 
+    // This should allow us to basically generate any type of GUI
+    // main objects.
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,

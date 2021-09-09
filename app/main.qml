@@ -10,13 +10,18 @@ ApplicationWindow {
     visible: true
     title: qsTr("Calculator")
     color: "lightblue"
+
+    // I could only get the top-level window to automatically calculate
+    // its size if I did this.
     width: calculator_view.implicitWidth + 2 * calculator_view.anchors.margins
     height: calculator_view.implicitHeight + 2 * calculator_view.anchors.margins
 
+    // Instantiate OUR model
     CalculatorPresenter {
         id: calculator_presenter
     }
 
+    // Instantiate OUR view that will use the CalculatorPresenter model
     CalculatorView {
         id: calculator_view
         anchors.fill: parent
@@ -25,6 +30,7 @@ ApplicationWindow {
         implicitHeight: maincolumn_layout.implicitHeight + 2 * maincolumn_layout.anchors.margins
         model: calculator_presenter
 
+        // Basic calculator layout: result along top with a grid of buttons below.
         ColumnLayout {
             id: maincolumn_layout
             anchors.fill: parent

@@ -17,7 +17,7 @@ void CalculatorPresenter::setView(ICalculatorView *view)
 {
     _view = view;
 
-    // Update the view...
+    _updateView();
 }
 
 string_view CalculatorPresenter::display() const
@@ -28,6 +28,11 @@ string_view CalculatorPresenter::display() const
 void CalculatorPresenter::pressKey(const char key)
 {
     model().pressKey(key);
+    _updateView();
+}
+
+void CalculatorPresenter::_updateView()
+{
     if (view())
         view()->updateCurrentResult(model().state().display);
 }

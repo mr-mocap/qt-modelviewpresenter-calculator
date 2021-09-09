@@ -16,19 +16,16 @@ QCalculatorView::QCalculatorView(QQuickItem *parent)
 
 void QCalculatorView::updateCurrentResult(const std::string_view new_value)
 {
-    Q_ASSERT(_currentResultQt == QString::fromStdString(_currentResult));
-
     // Are they different?
-    if (new_value.compare(_currentResult) != 0)
-        updateBothNormalAndQtResult(new_value);
-
-    Q_ASSERT(_currentResultQt == QString::fromStdString(_currentResult));
+    if (new_value != _currentResult)
+    {
+        _currentResult.assign(new_value.data(), new_value.size());
+        emit resultChanged();
+    }
 }
 
 std::string_view QCalculatorView::currentResult() const
 {
-    Q_ASSERT(_currentResultQt == QString::fromStdString(_currentResult));
-
     return _currentResult;
 }
 
@@ -67,31 +64,5 @@ const QCalculatorPresenter *QCalculatorView::qmodel() const
 
 QString QCalculatorView::qresult() const
 {
-    Q_ASSERT(_currentResultQt == QString::fromStdString(_currentResult));
-
-    return _currentResultQt;
-}
-
-void QCalculatorView::setQResult(QString result)
-{
-    Q_ASSERT(_currentResultQt == QString::fromStdString(_currentResult));
-
-    if (result != _currentResultQt)
-        updateBothNormalAndQtResult(result);
-
-    Q_ASSERT(_currentResultQt == QString::fromStdString(_currentResult));
-}
-
-void QCalculatorView::updateBothNormalAndQtResult(const std::string_view new_value)
-{
-    _currentResult.assign(new_value.data(), new_value.size());
-    _currentResultQt = QString::fromStdString(_currentResult);
-    emit resultChanged();
-}
-
-void QCalculatorView::updateBothNormalAndQtResult(QString new_value)
-{
-    _currentResult = new_value.toStdString();
-    _currentResultQt = new_value;
-    emit resultChanged();
+    return QString::fromStdString(_currentResult);
 }

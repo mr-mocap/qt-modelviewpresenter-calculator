@@ -25,6 +25,8 @@ public:
 protected:
     Calculator      &_model;
     ICalculatorView *_view = nullptr;
+
+    void _updateView();
 };
 
 #endif // CALCULATORPRESENTER_H
