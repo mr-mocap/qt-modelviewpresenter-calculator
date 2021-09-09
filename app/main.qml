@@ -31,6 +31,7 @@ ApplicationWindow {
         model: calculator_presenter
 
         // Basic calculator layout: result along top with a grid of buttons below.
+        // We use this instead of a GridLayout.
         ColumnLayout {
             id: maincolumn_layout
             anchors.fill: parent
@@ -42,7 +43,6 @@ ApplicationWindow {
             RowLayout {
                 id: result_layout
                 spacing: 10
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 Layout.fillWidth: true
 
                 Label {
@@ -63,27 +63,26 @@ ApplicationWindow {
             RowLayout {
                 id: toprowbuttons_layout
                 spacing: 10
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 Layout.fillWidth: true
 
                 Button {
                     text: ""
-                    padding: 0
+                    Layout.fillWidth: true
                 }
 
                 Button {
                     text: ""
-                    padding: 0
+                    Layout.fillWidth: true
                 }
 
                 Button {
                     text: ""
-                    padding: 0
+                    Layout.fillWidth: true
                 }
 
                 Button {
                     text: "/"
-                    padding: 0
+                    Layout.fillWidth: true
 
                     onClicked: calculator_view.press("/")
                 }
@@ -91,33 +90,32 @@ ApplicationWindow {
 
             RowLayout {
                 spacing: 10
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 Layout.fillWidth: true
 
                 Button {
                     text: "7"
-                    padding: 0
+                    Layout.fillWidth: true
 
                     onClicked: calculator_view.press("7")
                 }
 
                 Button {
                     text: "8"
-                    padding: 0
+                    Layout.fillWidth: true
 
                     onClicked: calculator_view.press("8")
                 }
 
                 Button {
                     text: "9"
-                    padding: 0
+                    Layout.fillWidth: true
 
                     onClicked: calculator_view.press("9")
                 }
 
                 Button {
                     text: "*"
-                    padding: 0
+                    Layout.fillWidth: true
 
                     onClicked: calculator_view.press("*")
                 }
@@ -125,29 +123,32 @@ ApplicationWindow {
 
             RowLayout {
                 spacing: 10
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 Layout.fillWidth: true
 
                 Button {
                     text: "4"
+                    Layout.fillWidth: true
 
                     onClicked: calculator_view.press("4")
                 }
 
                 Button {
                     text: "5"
+                    Layout.fillWidth: true
 
                     onClicked: calculator_view.press("5")
                 }
 
                 Button {
                     text: "6"
+                    Layout.fillWidth: true
 
                     onClicked: calculator_view.press("6")
                 }
 
                 Button {
                     text: "-"
+                    Layout.fillWidth: true
 
                     onClicked: calculator_view.press("-")
                 }
@@ -155,29 +156,32 @@ ApplicationWindow {
 
             RowLayout {
                 spacing: 10
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 Layout.fillWidth: true
 
                 Button {
                     text: "1"
+                    Layout.fillWidth: true
 
                     onClicked: calculator_view.press("1")
                 }
 
                 Button {
                     text: "2"
+                    Layout.fillWidth: true
 
                     onClicked: calculator_view.press("2")
                 }
 
                 Button {
                     text: "3"
+                    Layout.fillWidth: true
 
                     onClicked: calculator_view.press("3")
                 }
 
                 Button {
                     text: "+"
+                    Layout.fillWidth: true
 
                     onClicked: calculator_view.press("+")
                 }
@@ -185,26 +189,28 @@ ApplicationWindow {
 
             RowLayout {
                 spacing: 10
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 Layout.fillWidth: true
-                Layout.fillHeight: true
 
                 Button {
                     text: ""
+                    Layout.fillWidth: true
                 }
 
                 Button {
                     text: "0"
+                    Layout.fillWidth: true
 
                     onClicked: calculator_view.pressKey("0")
                 }
 
                 Button {
                     text: ""
+                    Layout.fillWidth: true
                 }
 
                 Button {
                     text: "="
+                    Layout.fillWidth: true
 
                     onClicked: calculator_view.press("=")
                 }
